@@ -1,9 +1,13 @@
 def recite(start_verse, end_verse):
+    # ajustamos los indices para que coincidan con el indice de las listas
     verso_i = start_verse - 1
     verso_f = end_verse - 1
+    # lista que retornaremos
     lista = []
+    # texto que ingresamos a la lista
     texto = ""
 
+    # lista de renglones iniciales
     this = ["This is the house that Jack built.",
              "This is the malt ", 
              "This is the rat ",
@@ -17,7 +21,8 @@ def recite(start_verse, end_verse):
              "This is the farmer sowing his corn ",
              "This is the horse and the hound and the horn "
             ]
-
+    
+    # lista de renglones consecuentes
     that =["that lay in the house that Jack built.",
             "that ate the malt ",
             "that killed the rat ",
@@ -31,15 +36,17 @@ def recite(start_verse, end_verse):
             "that belonged to the farmer sowing his corn "
             ]
     
-    while verso_i <= verso_f:
+
+    while verso_i <= verso_f: # agregamos el numero de repeticiones al poema 
         for j in range(verso_i,-1,-1):
-            if j == verso_i:
+            if j == verso_i: # si el renglon es inicial toma el indice de this
                 texto += this[j]
-            else:
+            else: # toma el renglon consecuente de that
                 texto += that[j]
             
+        # agregamos el texto a la lista
         lista.append(texto)
-        texto = ""
+        texto = "" # limpiamos la cadena  
         verso_i += 1
     
     return lista
